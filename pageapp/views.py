@@ -1,13 +1,10 @@
 from django.shortcuts import render
 
-from django.views.generic import TemplateView
+from django.http import HttpResponse
 
 # Create your views here.
 
 
-class HomePageView(TemplateView):
-    template_name = 'home.html'
-
-
-class AboutPageView(TemplateView):
-    template_name = 'about.html'
+def index(request):
+    my_dict = {'insert_me': "Hello there!"}
+    render(request, 'pageapp/home.html', context=my_dict)
